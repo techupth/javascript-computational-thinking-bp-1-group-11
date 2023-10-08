@@ -14,12 +14,23 @@ const movies = [
   { title: "Pulp Fiction", releaseDate: "1994-10-14", genre: "Crime" },
 ];
 
+
 function findMoviesByYear(movies, year) {
-  // Start coding here
+  let newArray = []
+  for (let i = 0; i < movies.length; i++) {
+    const filteredDate = new Date(movies[i].releaseDate)
+    const fullYear = filteredDate.getFullYear()
+   if (fullYear === year) {
+    newArray.push(movies[i]);
+   }
+  }
+  return newArray
 }
+  // Start coding here
+
+
 
 console.log(findMoviesByYear(movies, 1994));
-
 /* Output:
 [
   { title: "The Shawshank Redemption", releaseDate: "1994-10-14", genre: "Drama" },
